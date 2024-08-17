@@ -1,0 +1,45 @@
+.dateCheak{
+    float: right;
+    border: 1px solid #222222;
+    margin-left: auto;
+    margin-right: 10%;
+    margin-top:-61px; 
+    position: relative;
+    height: 500px; 
+   
+}
+.dateInput{
+    display: flex;
+    flex-direction:row;
+    
+}
+
+.price{
+    font-size: 3em;
+    height:60px;
+    margin-top: 0;
+    width: 100%;
+    color:whitesmoke;
+    background-color: #222222;
+    opacity: 0.5;
+    text-align: center;
+   
+}
+.dateInput input{
+    height: 35px;
+    margin: 15px;
+    /* padding-left: 15px; */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255);
+   }
+button{
+    margin-top: 35px;
+    height: 35px;
+    width: 100%;
+    
+}
+.select-input{
+ width: 90%;
+ margin: auto;
+}

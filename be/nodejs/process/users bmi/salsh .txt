@@ -1,0 +1,1 @@
+{"first_name":"salsh ","last_name":"mas","weigth":"74","heigth":"1.81","age":"36","bmi":22.587833094227893}{"first_name":"salsh ","last_name":"mas","weigth":"74","heigth":"1.81","age":"36","bmi":22.587833094227893}

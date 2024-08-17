@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <script src="vatModule.js"></script>
+    <script src="vatProv.js"></script>
+    <script src="vatCtrl.js"></script>
+    <!-- <script src="vatServ.js"></script> -->
+
+
+</head>
+
+<body>
+    <div ng-app="app">
+
+
+        <h1> VAT calculator</h1>
+        <div ng-controller="vatCtrl as ctrl">
+
+            input num : <input ng-model="novat" type="number">
+
+
+            <p> {{ctrl.calc(novat)}} </p>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

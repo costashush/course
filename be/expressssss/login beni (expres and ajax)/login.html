@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>login</title>
+
+</head>
+
+<body>
+
+    <h1>Please enter user name and password</h1>
+    <form>
+        USER NAME:<input type="text" id="username" name="username"> PASSWORD:
+        <input type="password" id="password" name="password">
+
+        <button type="button">Click Me!</button>
+
+        <h3></h3>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $('button').on('click', function() {
+
+            var data = {
+                username: $('#username').val(),
+                password: $('#password').val()
+            }
+
+            $.ajax({
+
+                url: '/tryToLogin',
+                type: 'POST',
+                dataType: 'json',
+                cache: false,
+                data: data,
+                success: function(data) {
+                    //  alert('brrrr');
+                    if (data.status === 'success') {
+                        window.location.href = data.redirect;
+                    } else {
+                        $('h3').text(data.status);
+                    }
+
+                }
+
+            })
+        })
+    </script>
+
+</body>
+
+</html>

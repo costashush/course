@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://unpkg.com/expect/umd/expect.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script type="text/babel">
+    function toggleTodo(todo) {
+      // BAD - mutating
+      // todo.completed = !todo.completed
+      // return todo
+
+      // WORKS but really verbose
+      // return { id: todo.id, 
+      //          text:todo.text, 
+      //          !completed : todo.completed 
+      // }
+
+      // GOOD
+      // return Object.assign({}, todo, { completed: !todo.completed})
+
+      // BEST - ES2016 (ES7 - must use babel)
+      return {...todo, 
+              completed: !todo.completed}
+    }
+    
+    function testToggleTodo() {
+      const todoBefore = {
+        id:0,
+        text:'learn redux',
+        completed:false
+      }
+      const todoAfter = {
+        id:0,
+        text:'learn redux',
+        completed:true
+      }
+
+      deepFreeze(todoBefore)
+
+      expect(toggleTodo(todoBefore)).toEqual(todoAfter)
+    }
+
+    testToggleTodo()
+
+    function deepFreeze (o) {
+      Object.freeze(o);
+
+      Object.getOwnPropertyNames(o).forEach(function (prop) {
+        if (o.hasOwnProperty(prop)
+        && o[prop] !== null
+        && (typeof o[prop] === "object" || typeof o[prop] === "function")
+        && !Object.isFrozen(o[prop])) {
+          deepFreeze(o[prop]);
+        }
+      });
+      
+      return o;
+    };
+
+
+    console.log("all tests passed")
+  </script>
+</body>
+</html>

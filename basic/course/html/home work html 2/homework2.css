@@ -1,0 +1,36 @@
+body{
+    width: 960px;
+    font-family: Arial;
+    font-size: 16px;
+    color: brown;
+    background-color:lightyellow; 
+    margin: auto;
+}
+/*header{
+    font-size: 64px;
+    background-color:green;
+    color:white*/
+   
+
+h1,h2,h3{
+  
+    color: blue;
+    
+
+}
+#headtitle{
+    font-size: 64px;
+    background-color:green;
+    color:rebeccapurple;
+    background-image: url("vector.jpg");
+     background-position: center;
+}
+#content{
+    background-color: #f44253;
+     width: 960px;
+     margin: 0px;
+}
+
+img{
+    border: 10px outset #abc;
+}

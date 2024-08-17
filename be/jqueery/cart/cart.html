@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="cart.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="head">
+        <h1>Shoping Cart</h1>
+    </div>
+    <div id="content">
+        <div id="shop">
+        </div>
+        <div id="table">
+            <table>
+                <thead>
+                    <td colspan="4">Cart</td>
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total:</td>
+                        <td id="totalqty">0</td>
+                        <td></td>
+                        <td id="totalprice">0</td>
+                    </tr>
+
+                </tfoot>
+
+            </table>
+            <form id="paypalform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_cart">
+                <input type="hidden" name="upload" value="1">
+                <input type="hidden" name="business" value="ronny@hoojima.com">
+                <input type="hidden" name="currency_code" value="ILS">
+                <input type="hidden" name="image_url" value="http://www.experis-software.co.il/wp-content/uploads/2015/01/logo.jpg">
+
+                <input id="paypalbutton" type="image" name="submit" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png"
+                    alt="Submit" />
+            </form>
+
+        </div>
+
+        <div id="scroll-to"></div>
+    </div>
+    <script src=" https://code.jquery.com/jquery-3.1.0.js "></script>
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>

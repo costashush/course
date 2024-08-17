@@ -1,0 +1,28 @@
+
+.square {
+    border: 1px solid black;  
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    background-color: #CDFFEA;
+    vertical-align: top;
+    justify-content:center;
+    align-items: center;
+}
+.board-row { 
+    height: 150px;
+
+}
+.marker{
+    padding: 0;
+    margin: 0;
+}
+.board{
+    margin: auto;
+}
+body{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    background: mintcream;
+}

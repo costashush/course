@@ -1,0 +1,43 @@
+.mainmenu>li{
+    display: inline-block;
+     
+}
+
+.mainmenu{
+     background-color: lightpink;
+}
+.menu{
+    width: 40px;
+    display: none;
+    position: absolute;    
+    list-style: none;
+    background-color : lightgreen;
+    }
+.mainmenu>li:hover .menu{
+    display: block;
+   
+}
+.mainmenu>li:hover{
+   background-color: lightcyan;
+}
+.menu{
+    
+}
+   
+.menu li {
+    right: 40px;
+}
+
+    
+
+
+.menu li:hover {
+background-color: indianred;
+}
+
+
+
+/*.menu:hover +li{
+display: block;
+    
+}*/

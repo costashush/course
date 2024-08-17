@@ -1,0 +1,16 @@
+{
+  "name": "Battelship",
+  "description": "Battleship game with Nodejs",
+  "author": "Romano and Wim",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jshint": "^2.9.1",
+    "socket.io": "^1.4.5"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "jshint": "^2.9.1"
+  }
+}

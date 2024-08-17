@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/expect/1.20.2/expect.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script type="text/babel">
+    function addAssignee(todo) {
+
+      ////class exercize/////////////////// 
+      return {...todo,assigned:[ ...todo.assigned,'moti'] }
+    }
+    
+    function testAddAsignee() {
+      const todoBefore = {
+        id:0,
+        text:'learn redux',
+        assigned:["yossi"],
+        completed:false
+      }
+      const todoAfter = {
+        id:0,
+        text:'learn redux',
+        assigned:["yossi","moti"],
+        completed:false
+      }
+
+      deepFreeze(todoBefore)
+
+      expect(addAssignee(todoBefore)).toEqual(todoAfter)
+    }
+
+    testAddAsignee()
+
+    function deepFreeze (o) {
+      Object.freeze(o);
+
+      Object.getOwnPropertyNames(o).forEach(function (prop) {
+        if (o.hasOwnProperty(prop)
+        && o[prop] !== null
+        && (typeof o[prop] === "object" || typeof o[prop] === "function")
+        && !Object.isFrozen(o[prop])) {
+          deepFreeze(o[prop]);
+        }
+      });
+      
+      return o;
+    };
+
+
+    console.log("all tests passed")
+  </script>
+</body>
+</html>

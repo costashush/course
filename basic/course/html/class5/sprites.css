@@ -1,0 +1,30 @@
+.sprite{
+    background-image:url(https://d13dcw7qo4xgly.cloudfront.net/wp-content/uploads/2014/12/Social_circle.png);
+    width:60px ;
+    height :60px; 
+    display: inline-block;
+}
+
+.sprite-behance{
+    background-position:-45px -24px;
+    
+     } 
+ .sprite-behance:hover{
+    background-position:-44px -23px;
+    
+     }     
+     .sprite1{
+    background-image:url(http://2.bp.blogspot.com/-WYZ4EZjumjk/T_G0nPuh5uI/AAAAAAAAAd8/JhQl3ULxZlM/s1600/sprite-example.png);
+    width:40px ;
+    height :55px; 
+    display: inline-block;
+}
+
+.sprite-behance1{
+    background-position:-2px -0px;
+    
+     } 
+ .sprite-behance1:hover{
+    background-position:-100px -0px;
+    
+     }     

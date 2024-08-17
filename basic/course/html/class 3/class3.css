@@ -1,0 +1,77 @@
+body{
+   background-image:url("class3image.jpg"); 
+     background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    font-family: Arial;
+    font-size: 16px;
+    color: brown;
+    background-color:lightyellow; 
+    margin: 40px 10px;
+}
+header{
+    font-size: 64px;
+    background-color:green;
+    color:white;
+    margin:0px 0px 50px 0px;
+    padding: 15px 30px;
+}
+
+
+
+
+button{
+    margin: 15px;
+}
+.special-putton{
+    background: green;
+    color: #fff;
+    border: 1px solid red;
+    padding: 5px 20px;
+    font-weight: bold;
+
+
+}
+/*.special-putton.big{
+
+}
+.special-putton.small{
+
+}*/
+h1,h2,h3{
+    
+    color: blue;
+
+}
+.acordion{
+    background-color: green;
+    border: 1px solid green;
+    }
+.acordion span{
+    padding: 20px
+}
+.acordion div {
+    padding: 
+}
+
+/*.enhance{
+    font-weight: bold;
+}
+
+#my-id{
+    color: green;
+}
+.italic-text{
+    font-style: italic;
+}
+p.italic-text{
+    background: black;
+}
+
+#pink-table td{
+    background: pink;
+}
+specification example 
+#pink-table thead td {
+    background: yellow;
+}*/

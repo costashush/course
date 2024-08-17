@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>airbb</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCujwsDuN3QBnfgrDAYG2fSkGOmQC52pDc"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="air.js"></script>
+    <!-- <script src="maps.js"></script> -->
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <div ng-app="myApp" ng-controller="HomeInventoryControler as myCtrl">
+
+        <div id="filter">
+
+            select the number of rooms:
+            <select name="rooms" id="rooms" ng-model="roomsNum">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>    
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select> input the max price :
+            <input type="number" ng-model="maxPrice">
+        </div>
+
+
+
+
+
+
+        <div id="head">
+
+            <button ng-click="myCtrl.getPrev() ">prev</button>
+            <button ng-click="myCtrl.getNext() ">next</button>
+
+        </div>
+
+        <table>
+            <thead>
+                <td>id</td>
+                <td>owner id</td>
+                <td>description</td>
+                <td>number of rooms</td>
+                <td>price per day</td>
+                <td>picture</td>
+                <td>latitude</td>
+                <td>longitude</td>
+            </thead>
+
+
+            <tr ng-repeat="house in myCtrl.getHouse(roomsNum,maxPrice) track by $index">
+                <!-- <tr ng-repeat="house in myCtrl.getHouse(roomsNum,maxPrice) | filter:{ rooms: roomsNum } |maxPrice:{price:maxPrice} track by $index"> -->
+                <td>
+                    {{house.id}}
+                </td>
+                <td>
+                    {{house.ownerId}}
+                </td>
+
+                <td>
+                    {{house.description}}
+                </td>
+                <td>
+                    {{house.rooms}}
+                </td>
+                <td>
+                    {{house.price}}
+                </td>
+                <td>
+
+                    <img ng-src="{{house.picture}}">
+                </td>
+                <td>
+                    {{house.latitude}}
+                </td>
+                <td>
+                    {{house.longitude}}
+                </td>
+
+
+            </tr>
+
+        </table>
+        <button ng-click="myCtrl.showhouses()">con.log.house</button>
+
+
+
+        <form>
+
+            owner id : <input ng-model='ownerId' type="number"> description: <input ng-model='description' type="text"> rooms: <input ng-model='rooms' type="number" min="1" max="5"> price: <input ng-model='price' type="number"> latitude:
+            <input ng-model='latitude' type="number"> longitude:
+            <input ng-model='longitude' type="number">
+
+
+            <!-- <input ng-click="myCtrl.add(ownerId, description, rooms, price, latitude, longitude, pic)" type="button" value="add new"> -->
+            <button ng-click="myCtrl.add(ownerId, description, rooms, price, latitude, longitude, pic)" type="submit">add new</button>
+
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

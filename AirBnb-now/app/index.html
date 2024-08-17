@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>listHomes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+    <script src="refs/angular.min.js"></script>
+
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAglnzFHZqT89vG8DFUiLodvQ5PvUM7lOY"></script>-->
+    <script src="refs/googleApi.js?key=AIzaSyAglnzFHZqT89vG8DFUiLodvQ5PvUM7lOY"></script>
+
+
+    <script src="users/users.js"></script>
+    <script src="homes/homes.js"></script>
+    <script src="module/moduleAirBnb.js"></script>
+
+    <script src="users/userService.js"></script>
+    <script src="homes/homeService.js"></script>
+
+    <script src="login/loginService.js"></script>
+
+    <script src="subscribe/subscrieService.js"></script>
+    <script src="subscribe/subscribeCtrl.js"></script>
+
+    <script src="ctrl/airBnbCtrl.js"></script>
+    <script src="login/loginCtrl.js"></script>
+
+
+
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+
+        td,
+        th {
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="loginController as loginCtrl">
+            user name : <input type="text" ng-model="userName" ng-focus="loginCtrl.loginService.removeMsg()"> user pass :
+            <input type="text" ng-model="pass" ng-focus="loginCtrl.loginService.removeMsg()">
+            <button ng-click="loginCtrl.loginService.login(userName,pass)">login</button>
+            <p ng-bind="loginCtrl.loginService.loginMsg"></p>
+
+        </div>
+        <div ng-controller="listController as listCtrl">
+            <div id="flexBox">
+                <fieldset id="homeForm">
+                    <legend>homes assign</legend>
+                    <table>
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>ownerId : </span>
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="owner"><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>description : </span>
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="description"><br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span>price : </span>
+                                </td>
+                                <td>
+                                    <input type="number" ng-model="price"><br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span>roomNum : </span>
+                                </td>
+                                <td>
+                                    <input type="number" ng-model="roomNum"><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>latitude : </span>
+                                </td>
+                                <td>
+                                    <input type="number" ng-model="latitude"><br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span>longtitude : </span>
+                                </td>
+                                <td>
+                                    <input type="number" ng-model="longtitude"><br>
+                                </td>
+                            </tr>
+                            <tr colspan="2">
+                                <td>
+                                    <button ng-click="listCtrl.homesService.addItem(owner,description,price,roomNum,latitude,longtitude)">add item</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <p id="approveMsg"></p>
+                </fieldset>
+
+
+                <!--<button id="showMap" ng-click="listCtrl.initMap()"> show map</button>-->
+                <div ng-controller="subscribeController as subscribeCtrl">
+
+                    <table id="homeTable">
+                        <thead>
+
+                            <th ng-click="listCtrl.sort('id')">id</th>
+                            <th ng-click="listCtrl.sort('ownerId')">owner</th>
+                            <th>image</th>
+                            <th ng-click="listCtrl.sort('description')">description</th>
+                            <th ng-click="listCtrl.sort('price')">price</th>
+                            <th ng-click="listCtrl.sort('roomNum')">roomNum</th>
+                            <th ng-click="listCtrl.sort('latitude')">latitude</th>
+                            <th ng-click="listCtrl.sort('longtitude')">longtitude</th>
+                            <th ng-show="login">subscribe</th>
+
+
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="home in listCtrl.getHomes() track by $index">
+                                <td>{{home.id}}</td>
+                                <td>{{home.ownerId}}</td>
+
+                                <td> <img ng-src="{{listCtrl.usersService.getImg(home.ownerId)}}"> </td>
+                                <td>{{home.description}}</td>
+                                <td>{{home.price}}</td>
+
+                                <td>{{home.roomNum}}</td>
+                                <td>{{home.latitude}}</td>
+                                <td>{{home.longtitude}}</td>
+                                <td><button ng-show="login" ng-click="subscribeCtrl.subscribeService.subscribeHome(home.id)">subscribe</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="subHomes" ng-if="login">
+
+                        <div ng-repeat="subHome in subscribeCtrl.subscribeService.getSubscriptionHomes() track by $index">
+                            <div>
+                                <p>{{subHome.id}}</p>
+                                <p>{{subHome.ownerId}}</p>
+                                <p> <img ng-src="{{listCtrl.usersService.getImg(subHome.ownerId)}}"> </p>
+                                <p>{{subHome.description}}</p>
+                                <p>{{subHome.price}}</p>
+
+                                <p>{{subHome.roomNum}}</p>
+                                <p>{{subHome.latitude}}</p>
+                                <p>{{subHome.longtitude}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <button ng-click="listCtrl.prevHomes()">prev</button>
+            <button ng-click="listCtrl.nextHomes()">next</button>
+            <!--<button ng-click="listCtrl.homesService.nextHomes()">next</button>-->
+
+
+            <div id="map" ng-init="listCtrl.initMap1()">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+
+</script>
+
+</html>Argument 'fn' is not a function, got string

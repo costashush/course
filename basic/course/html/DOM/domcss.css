@@ -1,0 +1,138 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color:  #EEF5E0;
+    margin-bottom: 60px;
+}
+.head{
+    width: 100%;
+    background: url(black-paper.png);
+    height: 225px;
+
+}
+h1{
+margin-bottom: 0;
+margin-top: 0;
+font-size: 50px;
+
+}
+.content{
+    max-width: 960px;
+    margin: auto;
+    box-sizing: border-box;
+    background-color: white;
+}
+nav {
+   
+    font-size: 25px;
+    background: url(jeans.png) #074;
+   
+}
+.head1{
+   position: absolute;
+   padding: 0 200px;
+}
+.head2{
+    position: absolute;
+   padding: 100px 450px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+     z-index: 1;
+}
+nav > ul > li {
+    float:left;
+    border: 5px solid white;
+    background-color: gray;
+}
+
+.clearfix:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+nav li {
+    border: 0;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 5px solid white;
+    background-color: gray;
+
+}
+
+nav ul a {
+    display: inline-block;
+    padding: 0 1em;
+   
+    text-decoration: none;
+    line-height: 2em;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+ 
+}
+
+nav li:hover > ul {
+    display: block;
+}
+nav > ul > li > ul {
+    top: 2em;
+    left: 0;
+}
+
+nav > ul > li > ul ul {
+    top: 0;
+    left: 100%;
+}
+.main img{
+    opacity: 0.5;
+}
+.main div:hover img{
+    opacity: 1;
+}
+.main>div>div {
+    padding: 50px 0;
+}
+
+.main>div{
+    float:left;
+    background-color: lightblue;
+    width: 20%;
+    border: 5px solid black;
+    margin:   1%;
+    height: 300px;
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+.main{
+    padding:100px 50px;
+    max-width: 960px;
+    margin: auto;
+    box-sizing: border-box;
+    border: 3px solid lightcoral;
+    background-color: white;
+    max-height: 100%;
+
+}
+
+p{
+  
+   font-size: 25px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.footer{
+    clear: left;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: lightsalmon;
+   
+
+}

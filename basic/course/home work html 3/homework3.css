@@ -1,0 +1,86 @@
+body{
+    width: 960px;
+    font-family: Arial;
+    font-size: 16px;
+    color: whitesmoke;
+    background-color:lightyellow; 
+    margin: auto;
+}
+/*header{
+    font-size: 64px;
+    background-color:green;
+    color:white*/
+   
+
+h1,h2,h3{
+  
+    color: lightblue;
+    
+
+}
+#headtitle{
+    font-size: 64px;
+    background-color:green;
+    color:rebeccapurple;
+    background-image: url("vector.jpg");
+    background-size: contain;
+    background-position: center;
+}
+#content{
+    background-color: #f44253;
+     width: 960px;
+     margin: 0px;
+     padding-left: 15px;
+}
+
+img{
+    border: 10px outset #abc;
+    padding: 3px;
+    background-color: brown;
+    outline: 5px solid green;
+}
+table{
+    border: 1px solid #666;
+}
+ .acordion:hover .aco-contener{
+    display: block;
+    /*margin-bottom:100%;*/
+    }
+
+        .aco-contener{
+             display: none;
+        transition: height 5s;
+        }
+.toolbar a{
+        text-decoration: none;
+       background-color: #f44253;
+       border: 3px solid whitesmoke;
+       border-radius: 10px;
+       font-size: 35px;
+       color:whitesmoke;
+       padding: 5px 5px;
+}
+.toolbar{
+     margin-top: 0px;
+   padding-top: 0px;
+   
+   
+   
+}
+.toolbar li{
+   display: inline-block;
+   padding: 0px 10px;
+}
+
+.toolbar a:hover{
+background-color: lightsalmon;
+}
+
+.toolbar ul{
+   background-color:#f44253;
+}
+
+
+.tbl{
+display: inline-block;
+}

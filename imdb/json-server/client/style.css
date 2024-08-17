@@ -1,0 +1,65 @@
+  body {
+      margin: 0;
+      font-family: 'Ubuntu', sans-serif;  
+  }
+  
+  .header {
+    grid-area: header;
+    background-color:rgb(0, 0, 0);
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+    background-color:rgb(0, 0, 0) ;
+    color: white;
+    font-size: 15px;
+  }
+  .search{
+    grid-area: search;
+    background-color:rgb(0, 0, 0) ;
+    display: flex;  
+    justify-content: center;
+    padding: 2em;
+    
+  }
+  .search>input{
+    width: 90%;
+    border-radius:3px; 
+    height: 3em;
+    
+  }
+  .main {
+    grid-area: main;  
+    background-color: rgb(220, 255, 21);
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    padding: 1em;
+  }
+  .main>div{
+    height: 28em;
+  }
+  .main> div >h1{
+    text-align: center;
+    font-size: 15px;
+  }
+  .main>div>img {
+    height: 80%;
+    width : 100%;
+  }
+  .content{
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-rows: 0fr 0fr 1fr;
+    grid-template-columns: 20%  auto;
+    grid-template-areas: "header header"
+                         "sidebar  search"
+                         "sidebar  main";
+  }
+  
+  .header>h1{
+    color: white;
+    text-align: center;
+  }

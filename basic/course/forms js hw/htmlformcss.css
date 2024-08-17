@@ -1,0 +1,17 @@
+body{
+    font-family: Arial;
+    font-size: 20px;
+    color: white;
+    background-color:purple; 
+
+}
+
+h2{
+    background-color: salmon;
+    color: blueviolet;
+
+}
+a{
+    color: saddlebrown;
+    background-color:   lawngreen;
+}

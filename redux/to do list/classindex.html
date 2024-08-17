@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.1/redux.js'></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <button id="btnAdd">Add</button>
+    <input type="text" id="todoDescription">
+    <div id="container">
+    </div>
+    <script type="text/babel">
+        // action = the JSON we sent to the dispatch, containing the arguments that will be processed (payload)
+        // reduces = the logic the store uses to process an action and return the next state
+        // action creator = ??
+        // STORE SETUP
+        let store = Redux.createStore(todosReducer,[])
+        store.subscribe(() => {
+            render()
+        })
+        // ACTION CREATORS
+        const ADD_TODO = "ADD_TODO";
+        const DELETE_TODO = "DELETE_TODO";
+        const TOGGLE_TODO = "TOGGLE_TODO";
+        let index = 1;
+        
+        
+        
+        function addTodoAction(id, text) {
+            return {type:ADD_TODO, id, text}
+        }
+        function deleteToDoAction(id) {
+            return {type:DELETE_TODO, id}
+        }
+        function toggelAction(id) {
+            return {type:TOGGLE_TODO ,id}
+        }
+        
+        
+        
+        function deepFreeze (o) {
+            Object.freeze(o);
+
+            Object.getOwnPropertyNames(o).forEach(function (prop) {
+            if (o.hasOwnProperty(prop)
+                && o[prop] !== null
+                && (typeof o[prop] === "object" || typeof o[prop] === "function")
+                && !Object.isFrozen(o[prop])) {
+                deepFreeze(o[prop]);
+                }
+            });
+      
+            return o;
+            };
+
+        // REDUCER
+        
+        function todosReducer(state, action) {
+            switch (action.type) {
+                case ADD_TODO:
+                return [...state, {id:action.id, text:action.text, completed:false}]
+            
+       
+                case DELETE_TODO:
+                return state.filter(todo => todo.id !== parseInt(action.id));
+                
+                
+                case TOGGLE_TODO:
+                return state.map(todo =>
+                (todo.id === parseInt(action.id)) 
+                ? {...todo, completed: !todo.completed}
+                : todo
+                )
+                default:
+                return state;
+            
+            }
+        }
+        
+        
+        /// DOM
+        document.getElementById("btnAdd").onclick = () => {
+            console.log(1)
+            let text = document.getElementById("todoDescription").value;
+            store.dispatch(addTodoAction(index,text))
+            ++index;
+        }   
+        document.querySelector("body").onclick = (e) => {
+            console.log(e.target)
+            // debugger
+            if (e.target.className === "btnDelete") {
+                // console.log(e.target.dataset.id)
+                store.dispatch(deleteToDoAction(e.target.dataset.id))
+            }
+            else if (e.target.className === "btnToggel") {
+                // console.log(e.target.dataset.id)
+                store.dispatch(toggelAction(e.target.dataset.id))
+            }
+        }   
+        function setup () {
+            // store.dispatch(addTodoAction(1,"sampletodo1"))
+            // store.dispatch(addTodoAction(2,"sampletodo2"))
+            
+        }
+        setup()
+        function renderItem({id, text, completed}) {
+            return `${id}  ${text}  ${completed}  <button class="btnDelete" data-id="${id}">delete</button> <button class="btnToggel" data-id="${id}">cheak</button>`
+        }
+        function render() {
+            let content = ""
+            
+            for (let item of store.getState()) {
+                content += renderItem(item) + "<br>"
+            }
+            document.getElementById("container").innerHTML = content ;
+        }
+    </script>
+</body>
+
+</html>

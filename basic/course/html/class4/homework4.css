@@ -1,0 +1,17 @@
+input{
+    display: none;
+}
+div{
+    display: none
+}
+
+body{
+    text-align: center;
+}
+
+input:checked+div{
+    display: block;
+}
+/*input[type=radio]:not(:checked)+div{
+    display: none;
+}*/

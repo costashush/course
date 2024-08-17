@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="toDo.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="toDoControler as myCtrl">
+
+        <div id="head">
+
+            <button ng-click="myCtrl.getPrev() ">prev</button>
+            <button ng-click="myCtrl.getNext() ">next</button>
+
+        </div>
+
+        <form>
+
+            user id : <input ng-model='userId' type="number"> title: <input ng-model='taskName' type="text"> body: <input ng-model='body' type="text"> priority: <input ng-model='priority' type="number" min="1" max="5"> importance: <input ng-model='importance'
+                type="number" min="1" max="5"> completed: <input ng-model='completed' type="number">
+            <input ng-click="myCtrl.add(myCtrl.getLength(),userId,taskName,body,priority,importance,completed)" type="submit">
+
+
+        </form>
+
+        <table>
+            <thead>
+                <td>id</td>
+                <td>user image</td>
+                <td>title</td>
+                <td>body</td>
+                <td>priority</td>
+                <td>importance</td>
+                <td>completed</td>
+                <td>update</td>
+            </thead>
+
+
+
+            <tr ng-repeat="task in myCtrl.getTasks() track by $index">>
+                <td>
+                    {{task.id}}
+                </td>
+                <td>
+                    <img ng-src="{{myCtrl.getImg(task['user-id']-1)}}"> {{task["user-id"]}}
+                </td>
+                <td>
+                    {{task.task}}
+                </td>
+                <td>
+                    <div ng-controller="showControler as showCtrl">
+                        <button ng-click="showCtrl.toggle()">show</button>
+                        <span ng-show="showCtrl.show"> {{task.body}}</span>
+                    </div>
+                </td>
+
+                <td>
+                    {{task.priority }}
+                </td>
+                <td>
+                    {{task.importance}}
+                </td>
+                <td>
+                    {{task.completed}}
+                </td>
+                <td>
+
+                    <input type="number" ng-model="newComp" ng-value="task.completed">
+                    <button ng-click="myCtrl.update(task.id,newComp)">update</button>
+                </td>
+                <td>
+                    <button ng-click="myCtrl.delete($index)">x</button>
+                </td>
+            </tr>
+
+        </table>
+        <button ng-click="myCtrl.showTasks()">con.log.task</button>
+    </div>
+
+
+</body>
+
+</html>

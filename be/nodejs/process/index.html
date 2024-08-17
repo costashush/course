@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<h1>---------COOL BMI CALCULATOR---------</h1>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ 
+    <form id="bmiform" action="http://localhost:2222/bmi" method="GET">
+       
+        <label for="firstname">First_Name:</label>
+        <input type="text" name="first_name">
+        
+        <label for="last_name">Last name:</label>
+        <input type="text" name="last_name">
+        
+        <label for="weigth">Weigth:</label>
+        <input type="number" min="40" max="230" name="weigth">
+        
+        <label for="heigth">Heigth</label>
+        <input type="number" step="0.01" min="1.20" max="2.20" name="heigth">
+        
+        <label for="age">Age</label>
+        <input type="number" min="0" max="120" name="age">
+       
+        <input type="submit">
+    </form>
+    <!-- <script src="process.js"> -->
+    <!-- </script> -->
+</body>
+
+</html>

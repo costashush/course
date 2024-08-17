@@ -1,0 +1,40 @@
+# Read here for "globs":
+# https://www.npmjs.com/package/glob
+# 
+# Better explanation of **  :
+# https://stackoverflow.com/questions/21834939/can-someone-explain-what-this-means-js-when-trying-to-fetch-the-src-files-i
+#
+# Put tests in the same folder:
+# https://stackoverflow.com/questions/28292404/angularjs-unit-test-directory-structure-best-practices
+
+mkdir (your app main dir)
+cd (your app main dir)
+npm init
+sudo npm install bower --save
+bower init
+bower install angularjs --save
+bower install angular-mocks --save-dev
+sudo npm install karma --save-dev
+npm install karma-jasmine karma-chrome-launcher --save-dev
+# Notice:
+# The following must be global:
+npm install -g karma-cli
+
+#configure karma using 'karma init'
+# I called my file 'appkarma.conf.js'
+# See example here:
+#    http://www.bradoncode.com/blog/2015/05/19/karma-angularjs-testing/
+
+karma init
+
+
+# Now include all your files (for angularjs) in the [files]
+# section:
+files: [
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'app/**/*.js'
+    ],
+
+# Now run karma:
+karma start appkarma.conf.js

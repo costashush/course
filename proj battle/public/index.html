@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>B-Ship</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="maindiv">
+
+        <h1>BATTLESHIP ONLINE GAME</h1>
+        <label id="nameText" for="login">Please inter your nick name:</label>
+        <input id="loginInput" type="text">
+        <input type="button" id="loginButton" class="myButton" value="login">
+        <select id="userList">
+  
+</select>
+
+    </div>
+    <div id="msg"></div>
+
+    <canvas id="game_board"></canvas>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="gameClient.js"></script>
+    <script src="drawer.js"></script>
+    <!-- <script src=""></script> -->
+</body>
+
+</html>

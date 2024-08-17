@@ -1,0 +1,12 @@
+.main>li>ul>li{
+    
+    color: red;
+    }
+  .aa{
+        display: none;
+
+    }
+.main ul:nth-child(1):hover+.aa{
+    display: block;
+
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/expect/1.20.2/expect.js"></script>
+  <script>
+    const addCounter = (list, item) => {
+      // BAD - mutating
+      // list.push(item)
+      // return list
+
+      // GOOD
+      // return list.concat([item])
+
+      // BEST
+      return [ ...list, item]
+    }
+    
+    const testAddCounter = () => {
+      const listBefore = []
+      const listAfter = [0]
+
+      deepFreeze(listBefore)
+
+      expect(addCounter(listBefore, 0)).toEqual(listAfter)
+    }
+
+    testAddCounter()
+
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+
+    const removeCounter = (list, index) => {
+      // BAD - mutating
+      // list.splice(index, 1)
+      // return list
+
+      // GOOD
+      // return list.slice(0, index).concat(list.slice(index + 1))
+
+      // BEST
+      return [...list.slice(0,index), ...list.slice(index + 1)]
+    }
+
+    const testRemoveCounter = () => {
+      const listBefore = [1,4,5]
+      const listAfter = [1,5]
+
+      deepFreeze(listBefore)
+
+      expect(removeCounter(listBefore, 1)).toEqual(listAfter)
+    }
+
+    testRemoveCounter()
+
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+
+    const incrementCounter = (list, index) => {
+      // BAD - mutating
+      // list[index]++
+      // return list
+
+      // GOOD
+      // return list.slice(0, index).concat(list[index] + 1).concat(list.slice(index + 1))
+
+      // BEST
+      return [...list.slice(0,index), list[index] + 1, ...list.slice(index + 1)]
+    }
+
+    const testIncrementCounter = () => {
+      const listBefore = [10,15,20]
+      const listAfter = [10,16,20]
+
+      deepFreeze(listBefore)
+
+      expect(incrementCounter(listBefore, 1)).toEqual(listAfter)
+    }
+
+    testIncrementCounter()
+
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+    console.log("all tests passed")
+  
+    function deepFreeze (o) {
+      Object.freeze(o);
+
+      Object.getOwnPropertyNames(o).forEach(function (prop) {
+        if (o.hasOwnProperty(prop)
+        && o[prop] !== null
+        && (typeof o[prop] === "object" || typeof o[prop] === "function")
+        && !Object.isFrozen(o[prop])) {
+          deepFreeze(o[prop]);
+        }
+      });
+      
+      return o;
+    };
+  </script>
+</body>
+</html>

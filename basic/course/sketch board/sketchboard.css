@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#maindiv{
+    position: relative;
+}
+.menu {
+    list-style: none;
+    margin: 0  20px
+}
+.menu>li{
+      float:left;
+      padding: 10px;
+      background-color: lightgreen;
+      margin: 0 15px;
+      border: 2px solid black;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;  
+}
+.clearfix::after{
+    clear: both;
+    display: block;
+    content: "";
+
+}
+hr {
+    padding: 0;
+    margin:0;
+}
+.rectangale{
+    position: absolute;
+
+}
+.oval{
+    position: absolute;
+    border-radius: 50%;
+}
+.controler{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;    
+    display: none;
+}
+.conton{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;    
+    display: block;
+}
+.lt{
+    left:-10px;
+    top:-10px; 
+}
+.rt{
+    right: -10px;
+    top: -10px
+}
+.lb{
+    left: -10px;
+    bottom: -10px;
+}
+.rb{
+    right: -10px;
+    bottom: -10px;
+}

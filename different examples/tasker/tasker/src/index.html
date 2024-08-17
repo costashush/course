@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Make them do task</title>
+    <link rel="stylesheet" href="/css/bulma.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+
+<body ng-app="tasks">
+    <div class="section borderer">
+        <section ng-controller="taskMakerCtrl">
+            <nav class="navbar mb-20">
+               <h2 class="title">{{:: appName }}</h2> 
+            </nav>
+            <div class="columns">
+                <div class="field column is-1">
+                    <p class="control">
+                        <input class="input" type="text" placeholder="Title" ng-model="userId">
+                    </p>
+                </div>
+                <div class="field column is-4">
+                    <p class="control">
+                        <input class="input" type="text" placeholder="Title" ng-model="title">
+                    </p>
+                </div>
+                <div class="field column is-4">
+                    <p class="control">
+                        <input class="input" type="text" placeholder="Body" ng-model="body">
+                    </p>
+                </div>
+                <div class="field column">
+                    <p class="control">
+                        <span class="select">
+                            <select>
+                            <option selected>one</option>
+                            <option>two</option>
+                            <option>three</option>
+                            </select>
+                        </span>
+                    </p>
+                </div>
+                <div class="field column">
+                    <p class="control">
+                        <span class="select">
+                            <select>
+                            <option selected>1</option>
+                            <option>2</option>
+                            </select>
+                        </span>
+                    </p>
+                </div>
+                <div class="field column">
+                    <p class="control">
+                        <button class="button is-success" ng-disabled="inputs()" ng-click="makeTask()">submit </button>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="columns">
+            <main class="column" ng-controller="usersController">
+                <section ng-repeat="user in users track by user.id">
+                    <div ng-class="{'isSelected': user.isSelected === true}" class="card" ng-click="isSelected(user); ">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <img ng-src="{{ user.image}}" alt="{{ user.image}}">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">{{user.firstName}}</p>
+                                    <p class="subtitle is-6">{{user.lastName}}</p>
+                                    <p ng-if="user.showPhone">phone : {{ user.phone}}</p>
+                                </div>
+                                <div>
+                                    <button class="button is-warning" ng-click="user.showPhone = !user.showPhone">show phone</button>
+                                    <button class=" button is-danger ">delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end users -->
+            </main>
+            <aside ng-controller="taskController" class="column">
+                <div ng-repeat="task in tasks track by task.id " ng-click="removeTask(task)">
+                    <div class="card ">
+                        <p>id: {{task.id}}</p>
+                        <p>task: {{task.text}}</p>
+                        <p>title: {{task.title}}</p>
+                        <figure class="image is-48x48 ">
+                            <img ng-src="{{task.img}} " alt="task.title ">
+                        </figure>
+                    </div>
+                    <br>
+                </div>
+            </aside>
+        </div>
+
+        <!-- vendors -->
+        <script src="/app/vendors/angular.js"></script>
+
+        <script src="/app/vendors/lodash.js"></script>
+
+        <!-- ng-app -->
+        <script src="/app.js"></script>
+
+        <!-- ng-controllers -->
+        <script src="/app/controllers/tasks-controller/tasks-controller.js"></script>
+        <script src="/app/controllers/users-controller/users-controller.js"></script>
+        <script src="/app/controllers/taskMaker-controller/taskMaker-controller.js"></script>
+
+
+        <!-- ng-services -->
+        <script src="/app/services/tasks-factory.js"></script>
+        <script src="/app/services/taskMaker-factory.js"></script>
+        <script src="/app/services/users-factory.js"></script>
+        <!-- ng-directives -->
+    </div>
+
+</body>
+
+</html>

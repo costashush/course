@@ -1,0 +1,60 @@
+.divtag{
+    height: 300px;
+margin-bottom: 50px;
+border: 2px black;
+background-image: url("imagestran2.png");
+
+}
+#div1{
+ background-image: url("imagestran2.png");   
+    
+}
+#div2{
+    background-repeat: repeat-x; 
+}
+#div3{
+    background-repeat: repeat-y;
+}
+#div4{
+    background-repeat: no-repeat;
+}
+#div5{
+    background: red;
+    
+}
+#div6{
+    background-position: center;
+    }
+#div7{
+        background-position: center;
+
+    background-repeat: repeat-x; 
+}
+#div8{
+        background-position: center;
+
+     background-repeat: repeat-y;
+}
+#div9{
+            background-position: center;
+    background-repeat: no-repeat;
+}
+#div10{
+    background-repeat: no-repeat;
+    background-position: 100px 250px;
+}
+
+
+
+
+
+/*01. Just define image background on tag div.
+02. Background repeat X.
+03. Background repeat Y.
+04. Background with no repeat.
+05. Background image with background color.
+06. Background with repeat and centered image.
+07. Background with repeat X and centered image.
+08. Background with repeat Y and centered image.
+09. Background with no repeat and centered image.
+10. Background with no repeat and specific position.*/

@@ -1,0 +1,8 @@
+.home{
+    display: flex;
+    flex-direction:column;
+    margin:0 25%;
+    padding-right: 3%;
+    line-height: 200%;
+    font-size: 17px;
+}

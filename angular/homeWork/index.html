@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="peopleApp.js"></script>
+    <!-- <script src="app.js"></script> -->
+</head>
+
+<body>
+
+
+    <div ng-app="myApp" ng-controller="peopleCtrl as myCtrl">
+        <div ng-repeat="per in myCtrl.people track by $index">
+            {{$index}}
+            <img ng-src="{{per.img}}"> {{per.first_name+' '+per.last_name}}
+            <button ng-click="myCtrl .toggle($index)">show</button>
+            <span ng-show="per.open">{{per.telephone}}</span><button ng-click="myCtrl.delete($index)">x</button>
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

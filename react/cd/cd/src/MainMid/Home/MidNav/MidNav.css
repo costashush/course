@@ -1,0 +1,16 @@
+.nav {
+   display: flex;
+   flex-direction:column;
+
+}
+.nav ul{
+    display: inline-block;
+    
+}
+.nav li {
+    padding: 0 25px 0 0;
+    display: inline-block;
+    font-size: 1.2em;
+   }
+
+

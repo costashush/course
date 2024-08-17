@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="css/style.css" rel="stylesheet">-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="main.js"></script>    
+    <script src="house.js"></script> 
+    <!--<script src='./node_modules/angular/angular.js'></script>-->
+</head>
+
+<body ng-app="myApp" ng-controller="main as main">
+    <div ng-repeat="house in main.houses">
+        <single-house info='house'> </single-house>
+    </div>
+   
+    
+</body>
+
+</html>

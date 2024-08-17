@@ -1,0 +1,7 @@
+.homesGrid {
+    display: grid;
+    width: 60%;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(2, 150px); */
+    grid-gap: 1rem;
+}

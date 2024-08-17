@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Registration Form</title>
+
+
+    <link rel="stylesheet" href="htmlformcss.css">
+</head>
+
+<body>
+    <table align="center">
+        <form align="center" autocomplete="on" method="POST" action="http://wpwith.us/experis/form/">
+            <tr>
+                <td><label for="name"> name:</label>
+                </td>
+                <td><input required autofocus type="text" minlenght="4" maxlength="32" id="name" name="Name"></td>
+            </tr>
+            <tr>
+                <td> <label for="password"> password:</label> </td>
+                <td><input required type="password" minlenght="8" maxlength="16" id="password" name="Password"> </td>
+            </tr>
+            <tr>
+                <td><label for="E-mail"> E-mail:</label></td>
+                <td><input required type="email" id="E-mail" name="email"></td>
+            </tr>
+            <tr>
+                <td><label for="telephone"> telephone:</label></td>
+                <td><input type="telephone" placeholder="Cellular" id="telephone" name="Phone"></td>
+            </tr>
+            <tr>
+                <td><label for="age"> Age: </label></td>
+                <td><input type="number" min="13" max="120" id="age" name="Age"></td>
+            </tr>
+            <tr>
+                <td>gender:</td>
+                <td>
+                    <label for="male">male</label><input type="radio" value="OK" id="male" name="gender">
+                    <label for="female">female</label> <input type="radio" value="OK" id="female" name="gender">
+                    <label for="other">other</label><input type="radio" value="OK" id="other" name="gender"><br>
+
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <h2>write about you</h2>
+                </td>
+                <td> <textarea name="textarea" rows="4" cols="15">about me:   
+        </textarea></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <h2>How did you hear about us</h2>
+                </td>
+                <td> <select name="list of recomindation">
+                   <option value="1">website</option><br>
+                <option selected value="2">frind</option><br>
+                <option value="3">other</option><br>
+            </select></td>
+
+            </tr>
+            <tr>
+                <td><label for="Checkbox">I agree terms and condition</label></td>
+                <td> <input required type="checkbox" id="Checkbox" name="agree" value="OK"></td>
+
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="send">
+                </td>
+                </tr>
+
+            <input type="hidden" id="Submition" name="submition" value="8785441">
+
+        </form>
+
+</body>
+
+</html>

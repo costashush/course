@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jobs is awesome</title>
+    <script src="/app/vendors/angular.js"></script>
+</head>
+
+<body ng-app="jobs">
+    <h1>hello world </h1>
+
+    <a ui-sref="home" ui-sref-active="active">Home</a>
+    <a ui-sref="about" ui-sref-active="active">About</a>
+
+    <ui-view></ui-view>
+
+    <script src="/app/app.js"></script>
+    <script src="/app/vendors/angular-ui-router.js"></script>
+
+    <script src="/app/components/Home/Home.js"></script>
+    <script src="/app/components/Home/JobsCompo/JobList.js"></script>
+
+
+
+</body>
+
+</html>
